@@ -867,7 +867,7 @@ decoder_next (BerDecoder d)
           d->image.length = ti.length + 100;
           if (d->image.length < ti.length)
             return gpg_error (GPG_ERR_BAD_BER);
-          d->image.buf = xtrycalloc (1, d->image.length);
+printf("ALLOCATING %zu\n", d->image.length); d->image.buf = xtrycalloc (1, d->image.length);
           if (!d->image.buf)
             return gpg_error (GPG_ERR_ENOMEM);
         }

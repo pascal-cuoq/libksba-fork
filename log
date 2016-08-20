@@ -1,0 +1,75 @@
+~/orig/libksba$ time tests/cert-basic long_time.crt 
+ALLOCATING 25940
+Certificate in `long_time.crt':
+  serial....: (#00D8C88E6AE467300D#)
+  notBefore.: none
+  notAfter..: none
+  hash algo.: (null)
+cert-basic.c:464: public key not found
+cert-basic.c:169: enumerating extensions failed: No value
+SubjectKeyIdentifier: none
+AuthorityKeyIdentifier: none
+cert-basic.c:227: ksba_cert_is_ca failed: No value
+KeyUsage: Not specified
+ExtKeyUsages: none
+CertificatePolicies: none
+cert-basic.c:337: ksba_cert_get_crl_dist_point failed: No value
+cert-basic.c:356: ksba_cert_get_authority_info_access failed: No value
+cert-basic.c:375: ksba_cert_get_subject_info_access failed: No value
+ALLOCATING 33554789
+cert-basic.c:557: expected EOF but got: BER error
+
+
+real	0m0.013s
+user	0m0.008s
+sys	0m0.008s
+~/orig/libksba$ time tests/cert-basic 90s.crt 
+ALLOCATING 1056
+ksba: ERROR: object length field 99 octects too large
+Certificate in `90s.crt':
+  serial....: (#00C6C70409BC225BA0#)
+  issuer....: `CN=& &  & ???????????????????????????????????????\00??????耀?????𐀢??????'
+  notBefore.: none
+  notAfter..: none
+  hash algo.: (null)
+cert-basic.c:464: public key not found
+cert-basic.c:169: enumerating extensions failed: No value
+SubjectKeyIdentifier: none
+AuthorityKeyIdentifier: none
+cert-basic.c:227: ksba_cert_is_ca failed: No value
+KeyUsage: Not specified
+ExtKeyUsages: none
+CertificatePolicies: none
+cert-basic.c:337: ksba_cert_get_crl_dist_point failed: No value
+cert-basic.c:356: ksba_cert_get_authority_info_access failed: No value
+cert-basic.c:375: ksba_cert_get_subject_info_access failed: No value
+ALLOCATING 60146387817
+ksba: ber-decoder: node `?': premature EOF
+cert-basic.c:557: expected EOF but got: BER error
+
+
+real	0m7.235s
+user	0m2.044s
+sys	0m5.188s
+~/orig/libksba$ time tests/cert-basic 0.0.0.0.0.crt 
+ALLOCATING 1273
+Certificate in `0.0.0.0.0.crt':
+  serial....: (#03#)
+  issuer....: `1.2.840.113549.1.9.1=#696E73656375726540746573742E696E736563757265,CN=For Tests Only next generation,O=InsecureTestCertificate,C=de'
+         aka: `<insecure@test.insecure>'
+  subject...: `1.2.840.113549.1.9.1=#696E73656375726540746573742E696E736563757265,CN=Insecure Test OCSPServer Cert,O=InsecureTestCertificate,C=de'
+         aka: `<insecure@test.insecure>'
+  notBefore.: 2002-06-27 13:07:46
+  notAfter..: 2007-06-26 13:07:46
+  hash algo.: 1.2.840.113549.1.1.4
+Extn: 2.5.29.15 at 499 with length 4 
+Extn: 2.5.29.37 at 512 with length 33 
+Extn: 2.5.29.14 at 554 with length 22 
+Extn: 2.5.29.35 at 587 with length 163 
+Extn: 2.5.29.17 at 759 with length 26 
+Extn: 2.5.29.18 at 794 with length 26 
+Extn: 2.16.840.1.113730.1.1 at 835 with length 4 
+Extn: 2.16.840.1.113730.1.13 at 854 with length 47 
+SubjectKeyIdentifier: (#F24BEE302532B1253227CDEBF3D8E7153BE2A35F#)
+ALLOCATING 3214228
+AuthorityKeyIdentifier: 0.9.6.3.85.4.6.19.2.100.101.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.…
